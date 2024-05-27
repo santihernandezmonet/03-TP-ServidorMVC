@@ -1,13 +1,12 @@
 import express from 'express'
 import RouterLibros from './router/libros.js'
-import bodyParser from 'body-parser'
 
 
 const app = express()
-
-app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
+
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 
 app.use('/', new RouterLibros().start())
